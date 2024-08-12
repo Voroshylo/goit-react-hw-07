@@ -4,7 +4,7 @@ import { fetchContacts, addContact, deleteContact } from "./contactsOps";
 const contactsSlice = createSlice({
   name: "contacts",
   initialState: {
-    item: [],
+    items: [],
     loading: false,
     error: null,
   },
@@ -18,7 +18,7 @@ const contactsSlice = createSlice({
 
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.items = action.payload;
       })
 
       .addCase(fetchContacts.rejected, (state, action) => {
@@ -60,7 +60,7 @@ const contactsSlice = createSlice({
   },
 });
 
-export const selectContact = (state) => state.contacts.item;
+export const selectContact = (state) => state.contacts.items;
 export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
 export default contactsSlice.reducer;

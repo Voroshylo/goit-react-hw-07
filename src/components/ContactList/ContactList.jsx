@@ -5,11 +5,6 @@ import css from "./ContactList.module.css";
 
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
-  // const filter = useSelector(selectNameFilter);
-
-  // const visibleContacts = contacts.filter((contact) =>
-  //   contact.name.toLowerCase().includes(filter.toLowerCase())
-  // );
 
   return (
     <div className={css.div}>

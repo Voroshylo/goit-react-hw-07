@@ -14,10 +14,12 @@ const persistedReducer = persistReducer(persistConfig, contactsReducer);
 
 const store = configureStore({
   reducer: {
-    contacts: persistReducer,
+    contacts: persistedReducer,
     filters: filtersReducer,
   },
-  middleware: [thunk],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
+
 const persistor = persistStore(store);
+
 export { store, persistor };
